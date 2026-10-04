@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Devocionales Content Publisher</title>
+    <meta name="description" content="Política de privacidad de Devocionales Content Publisher para el uso de la API de TikTok.">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --border-color: #232f48;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-gold: #fbbf24;
+            --accent-purple: #c084fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
+            color: #0b0f19;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid rgba(35, 47, 72, 0.6);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p, ul, ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .contact-box {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            background-color: #070a10;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-meta {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.75rem;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span>Devocionales</span>
+                <span class="logo-badge">PUBLISHER</span>
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="privacy-policy.html" class="active">Política de Privacidad</a>
+                <a href="terms-of-service.html">Términos de Servicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Política de Privacidad</h1>
+            <p>Última actualización: 3 de octubre de 2026</p>
+        </div>
+
+        <article class="content-card">
+            <h2>1. Introducción</h2>
+            <p>
+                En <strong>Devocionales Content Publisher</strong> nos tomamos muy en serio la privacidad y la protección de los datos de nuestros usuarios. Esta Política de Privacidad describe cómo recopilamos, procesamos, almacenamos y protegemos la información cuando interactúas con nuestra aplicación y con los servicios conectados a la API oficial de TikTok.
+            </p>
+
+            <h2>2. Información que Recopilamos</h2>
+            <p>
+                Nuestra aplicación opera bajo el principio de minimización de datos. Únicamente recopilamos y procesamos la información estrictamente indispensable para el funcionamiento del servicio de publicación:
+            </p>
+            <ul>
+                <li><strong>Tokens de Autorización OAuth:</strong> Tokens de acceso temporal y tokens de actualización proporcionados por TikTok tras el consentimiento explícito del usuario.</li>
+                <li><strong>Identificador de Cuenta de TikTok:</strong> ID público y nombre de usuario para asociar las publicaciones programadas al canal correspondiente.</li>
+                <li><strong>Metadatos de Contenido:</strong> Títulos, descripciones, hashtags y archivos multimedia de video devocional preparados para su publicación.</li>
+            </ul>
+            <p>
+                <strong>No recopilamos ni almacenamos:</strong> Contraseñas personales de TikTok, información bancaria ni datos sensibles que no guarden relación directa con la publicación de contenidos.
+            </p>
+
+            <h2>3. Uso de la Información y TikTok API</h2>
+            <p>
+                Los datos obtenidos a través de la <strong>TikTok Content Posting API</strong> se utilizan exclusivamente para los siguientes fines:
+            </p>
+            <ul>
+                <li>Autenticar la identidad del creador de contenido mediante OAuth 2.0.</li>
+                <li>Subir y publicar los videos devocionales autorizados directamente en la cuenta de TikTok del usuario.</li>
+                <li>Verificar el estado de carga y procesamiento de los videos publicados.</li>
+            </ul>
+            <p>
+                No empleamos los datos obtenidos de la API de TikTok para elaborar perfiles publicitarios, ni los vendemos o cedemos a intermediarios comerciales de ningún tipo.
+            </p>
+
+            <h2>4. Almacenamiento y Seguridad de los Datos</h2>
+            <p>
+                Implementamos medidas de seguridad técnicas y organizativas adecuadas para proteger sus datos contra el acceso no autorizado, alteración, divulgación o destrucción:
+            </p>
+            <ul>
+                <li>Los tokens de autenticación se almacenan de manera local y cifrada.</li>
+                <li>Todas las comunicaciones con los servidores de TikTok se realizan obligatoriamente mediante protocolos seguros HTTPS / TLS.</li>
+                <li>El acceso a los recursos del sistema está restringido únicamente a procesos autorizados.</li>
+            </ul>
+
+            <h2>5. Retención y Eliminación de Datos</h2>
+            <p>
+                Conservamos los datos únicamente durante el tiempo que sea necesario para prestar el servicio o hasta que el usuario decida revocar los permisos:
+            </p>
+            <ul>
+                <li><strong>Revocación de Permisos:</strong> El usuario puede revocar el acceso de <em>Devocionales Content Publisher</em> en cualquier momento desde la configuración de seguridad y aplicaciones vinculadas en su cuenta de TikTok.</li>
+                <li><strong>Eliminación de Datos:</strong> Al revocarse el acceso o previa solicitud por correo electrónico, todos los tokens y datos asociados se eliminan definitivamente en un plazo máximo de 48 horas hábiles.</li>
+            </ul>
+
+            <h2>6. Cumplimiento con las Políticas de TikTok</h2>
+            <p>
+                Esta aplicación y sus operadores se comprometen a respetar en todo momento los Términos de Servicio para Desarrolladores de TikTok y las Normas de la Comunidad de TikTok, garantizando que todo el contenido publicado cumple con los estándares de integridad y seguridad de la plataforma.
+            </p>
+
+            <h2>7. Contacto del Responsable</h2>
+            <p>
+                Si tienes preguntas, inquietudes o deseas solicitar la eliminación de tus datos asociados a esta aplicación, puedes comunicarte con nuestro equipo:
+            </p>
+            <div class="contact-box">
+                <p><strong>Devocionales Content Publisher - Privacidad y Soporte</strong></p>
+                <p>Correo electrónico: <a href="mailto:soporte@devocionalescontent.com" style="color: var(--accent); text-decoration: none;">soporte@devocionalescontent.com</a></p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="privacy-policy.html">Política de Privacidad</a>
+                <a href="terms-of-service.html">Términos de Servicio</a>
+                <a href="tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt" target="_blank" rel="noopener">Archivo de Verificación (.txt)</a>
+            </div>
+            <p class="footer-meta">
+                &copy; 2026 Devocionales Content Publisher. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

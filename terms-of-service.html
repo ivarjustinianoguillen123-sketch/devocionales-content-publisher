@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio - Devocionales Content Publisher</title>
+    <meta name="description" content="Términos y condiciones de uso de la aplicación Devocionales Content Publisher.">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --border-color: #232f48;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-gold: #fbbf24;
+            --accent-purple: #c084fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
+            color: #0b0f19;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid rgba(35, 47, 72, 0.6);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p, ul, ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            background-color: #070a10;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-meta {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.75rem;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span>Devocionales</span>
+                <span class="logo-badge">PUBLISHER</span>
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="privacy-policy.html">Política de Privacidad</a>
+                <a href="terms-of-service.html" class="active">Términos de Servicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Términos de Servicio</h1>
+            <p>Última actualización: 3 de octubre de 2026</p>
+        </div>
+
+        <article class="content-card">
+            <h2>1. Aceptación de los Términos</h2>
+            <p>
+                Al acceder o utilizar <strong>Devocionales Content Publisher</strong>, el usuario acepta de manera vinculante los presentes Términos de Servicio. Si no estás de acuerdo con alguno de los términos, debes abstenerte de utilizar la plataforma.
+            </p>
+
+            <h2>2. Descripción del Servicio</h2>
+            <p>
+                <em>Devocionales Content Publisher</em> es una aplicación diseñada para facilitar la preparación, formateo vertical (9:16) y publicación programada de mensajes de reflexión, textos devocionales y contenido espiritual en la plataforma TikTok utilizando su Content Posting API oficial.
+            </p>
+
+            <h2>3. Uso Autorizado y Restricciones</h2>
+            <p>
+                El usuario se compromete a hacer un uso lícito y ético de la plataforma:
+            </p>
+            <ul>
+                <li>No utilizar la plataforma para publicar contenido que infrinja derechos de autor, marcas comerciales u otros derechos de propiedad intelectual.</li>
+                <li>No difundir contenido de odio, violencia, desinformación o cualquier material que viole las <a href="https://www.tiktok.com/community-guidelines" target="_blank" rel="noopener" style="color: var(--accent);">Normas de la Comunidad de TikTok</a>.</li>
+                <li>No intentar eludir mecanismos de seguridad, aplicar ingeniería inversa ni sobrecargar los servidores o las cuotas de la API.</li>
+            </ul>
+
+            <h2>4. Integración con TikTok y Servicios de Terceros</h2>
+            <p>
+                El servicio interactúa con la infraestructura de TikTok. La disponibilidad y el funcionamiento de la publicación están sujetos a las políticas, cuotas y términos de servicio establecidos por TikTok Inc. No somos responsables por interrupciones atribuibles a cambios o caídas en la API de TikTok.
+            </p>
+
+            <h2>5. Propiedad Intelectual</h2>
+            <p>
+                Todo el contenido devocional original, marcas, logotipos y código fuente de la aplicación son propiedad de sus respectivos titulares. El usuario conserva la titularidad sobre el contenido específico que decida publicar a través de su cuenta autorizada.
+            </p>
+
+            <h2>6. Limitación de Responsabilidad</h2>
+            <p>
+                En la máxima medida permitida por la legislación aplicable, <em>Devocionales Content Publisher</em> se proporciona "tal cual" y "según disponibilidad", sin garantías expresas o implícitas de ningún tipo sobre la continuidad ininterrumpida o la ausencia de errores en las transmisiones de red.
+            </p>
+
+            <h2>7. Modificaciones a los Términos</h2>
+            <p>
+                Nos reservamos el derecho de actualizar estos Términos de Servicio en cualquier momento para reflejar cambios funcionales o exigencias regulatorias. El uso continuo del servicio tras la publicación de modificaciones implica su aceptación formal.
+            </p>
+
+            <h2>8. Contacto</h2>
+            <p>
+                Para cualquier consulta relacionada con estos Términos de Servicio, puedes contactarnos a través de:
+            </p>
+            <p>
+                Correo electrónico: <a href="mailto:soporte@devocionalescontent.com" style="color: var(--accent); text-decoration: none;">soporte@devocionalescontent.com</a>
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="privacy-policy.html">Política de Privacidad</a>
+                <a href="terms-of-service.html">Términos de Servicio</a>
+                <a href="tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt" target="_blank" rel="noopener">Archivo de Verificación (.txt)</a>
+            </div>
+            <p class="footer-meta">
+                &copy; 2026 Devocionales Content Publisher. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devocionales Content Publisher - Publicación de Contenido Espiritual</title>
+    <!-- TikTok for Developers Site Verification -->
+    <meta name="tiktok-developers-site-verification" content="Svwa9bUiO50vO9fZksAtfvndiRHQ5mr3" />
+    <meta name="description" content="Plataforma de generación y publicación de contenido devocional y reflexiones espirituales en video vertical mediante la Content Posting API de TikTok.">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --border-color: #232f48;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-gold: #fbbf24;
+            --accent-purple: #c084fc;
+            --card-hover: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
+            color: #0b0f19;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        main {
+            flex: 1;
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1rem 3.5rem;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.1rem;
+            background-color: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.4);
+            background-color: var(--card-hover);
+        }
+
+        .card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-section {
+            margin-top: 3.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.25rem;
+        }
+
+        .info-section h2 {
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .info-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .code-box {
+            background: #090d16;
+            border: 1px solid var(--border-color);
+            padding: 0.9rem 1.2rem;
+            border-radius: 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85rem;
+            color: #34d399;
+            overflow-x: auto;
+            margin-top: 0.5rem;
+            word-break: break-all;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            background-color: #070a10;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-meta {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span>Devocionales</span>
+                <span class="logo-badge">PUBLISHER</span>
+            </a>
+            <nav>
+                <a href="index.html" class="active">Inicio</a>
+                <a href="privacy-policy.html">Política de Privacidad</a>
+                <a href="terms-of-service.html">Términos de Servicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="verification-badge">
+                ✓ Sitio Oficial de Integración TikTok API
+            </div>
+            <h1>Devocionales Content Publisher</h1>
+            <p>
+                Aplicación especializada en la generación, adaptación visual y publicación ética de mensajes devocionales y reflexiones espirituales en video vertical (9:16), conectada a través de la TikTok Content Posting API.
+            </p>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <div class="card-icon">📖</div>
+                <h3>Contenido Espiritual y Reflexivo</h3>
+                <p>
+                    Composición y curaduría de mensajes inspiracionales orientados a la edificación espiritual, paz interior y fortalecimiento de valores comunitarios positivos.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Optimizado para Video Vertical (9:16)</h3>
+                <p>
+                    Generación de clips de video de alta definición con subtitulado legible, fondos visuales serenos y diseño adaptado a la experiencia inmersiva de TikTok.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🔐</div>
+                <h3>TikTok Content Posting API Oficial</h3>
+                <p>
+                    Flujo de publicación directo, seguro y transparente utilizando la API oficial de TikTok para desarrolladores, con autorización OAuth 2.0 y sin intermediarios no verificados.
+                </p>
+            </article>
+        </section>
+
+        <section class="info-section">
+            <h2>Verificación de Dominio y Cumplimiento TikTok</h2>
+            <p>
+                Este sitio web sirve como punto de enlace y verificación pública de dominio ante <strong>TikTok for Developers</strong> para la aplicación <em>Devocionales Content Publisher</em>:
+            </p>
+            <p>
+                <strong>1. Meta etiqueta de verificación en el encabezado (&lt;head&gt;):</strong>
+            </p>
+            <div class="code-box">
+                &lt;meta name="tiktok-developers-site-verification" content="Svwa9bUiO50vO9fZksAtfvndiRHQ5mr3" /&gt;
+            </div>
+            <p style="margin-top: 1.25rem;">
+                <strong>2. Archivo de verificación en la raíz pública del dominio:</strong>
+            </p>
+            <div class="code-box">
+                tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt &rarr; tiktok-developers-site-verification=Svwa9bUiO50vO9fZksAtfvndiRHQ5mr3
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="privacy-policy.html">Política de Privacidad</a>
+                <a href="terms-of-service.html">Términos de Servicio</a>
+                <a href="tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt" target="_blank" rel="noopener">Archivo de Verificación (.txt)</a>
+            </div>
+            <p class="footer-meta">
+                &copy; 2026 Devocionales Content Publisher. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
