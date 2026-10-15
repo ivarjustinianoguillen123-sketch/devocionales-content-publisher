@@ -15,13 +15,14 @@
         :root {
             --bg-color: #0b0f19;
             --card-bg: #151c2c;
+            --card-hover: #1e293b;
             --border-color: #232f48;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent: #38bdf8;
             --accent-gold: #fbbf24;
             --accent-purple: #c084fc;
-            --card-hover: #1e293b;
+            --accent-red: #ef4444;
             --success: #34d399;
         }
 
@@ -44,49 +45,46 @@
 
         /* HEADER & NAVEGACIÓN */
         header {
+            background-color: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
-            padding: 1.1rem 2rem;
-            background: rgba(11, 15, 25, 0.95);
-            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .header-container {
-            max-width: 1120px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
         }
 
         .logo {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.65rem;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            text-decoration: none;
         }
 
-        .logo-badge {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
-            color: #0b0f19;
-            font-weight: 800;
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
-            padding: 0.2rem 0.55rem;
-            border-radius: 4px;
+        .logo img {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
         }
 
         nav {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
             gap: 1.25rem;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -97,56 +95,53 @@
             transition: color 0.2s ease;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover {
             color: var(--accent);
+        }
+
+        .nav-btn-highlight {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #0b0f19 !important;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600 !important;
+        }
+
+        .nav-btn-highlight:hover {
+            opacity: 0.92;
         }
 
         /* CONTENEDOR PRINCIPAL */
         main {
             flex: 1;
-            max-width: 1120px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem 4rem;
             width: 100%;
         }
 
-        /* SECCIÓN HERO */
+        /* HERO */
         .hero {
             text-align: center;
-            padding: 3.5rem 1rem 4rem;
+            padding: 3.5rem 1rem 3rem;
             max-width: 860px;
-            margin: 0 auto;
+            margin: 0 auto 3.5rem;
         }
 
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1.1rem;
-            background-color: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            margin-bottom: 1.75rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
+        .hero-title {
+            font-size: 2.8rem;
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 1.25rem;
-            background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
+        .hero-desc {
             font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 2.25rem;
+            margin-bottom: 2rem;
             line-height: 1.7;
         }
 
@@ -157,39 +152,35 @@
             flex-wrap: wrap;
         }
 
-        .btn-primary {
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, var(--accent), #0284c7);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.95rem;
             padding: 0.8rem 1.6rem;
             border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #0b0f19;
+            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
         }
 
         .btn-primary:hover {
+            background-color: #0284c7;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 22px rgba(56, 189, 248, 0.35);
         }
 
         .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.8rem 1.6rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+            border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
@@ -198,314 +189,594 @@
             transform: translateY(-2px);
         }
 
+        .btn-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            color: #0b0f19;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);
+        }
+
+        .btn-gold:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            color: #000;
+        }
+
         /* SECCIONES COMUNES */
         section {
-            margin-top: 5rem;
+            margin-bottom: 4.5rem;
+            scroll-margin-top: 5rem;
         }
 
         .section-header {
+            margin-bottom: 2.25rem;
             text-align: center;
-            max-width: 720px;
-            margin: 0 auto 3rem;
         }
 
         .section-tag {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
             display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .section-tag-gold {
+            color: var(--accent-gold);
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.25);
+        }
+
+        .section-tag-purple {
+            color: var(--accent-purple);
+            background: rgba(192, 132, 252, 0.1);
+            border-color: rgba(192, 132, 252, 0.25);
         }
 
         .section-title {
-            font-size: 2.1rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
             color: var(--text-primary);
-            margin-bottom: 0.85rem;
-            line-height: 1.25;
         }
 
-        .section-desc {
-            color: var(--text-secondary);
+        .section-subtitle {
             font-size: 1.05rem;
-            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        /* QUIÉNES SOMOS */
+        /* 1. SECCIÓN QUIÉNES SOMOS */
         .about-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 2.5rem;
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 1fr 1.3fr;
             gap: 2.5rem;
             align-items: center;
         }
 
-        .about-img-box {
-            text-align: center;
-        }
-
-        .about-img {
+        .about-image {
             width: 100%;
-            max-width: 260px;
-            height: auto;
-            border-radius: 14px;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            display: block;
-            margin: 0 auto;
+            height: 100%;
+            min-height: 280px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .about-content h3 {
             font-size: 1.6rem;
             font-weight: 700;
-            color: var(--text-primary);
             margin-bottom: 1rem;
+            color: var(--accent);
         }
 
         .about-content p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            margin-bottom: 1.2rem;
             line-height: 1.7;
-            margin-bottom: 1.25rem;
+            font-size: 1rem;
         }
 
-        .about-pillars {
+        .about-highlights {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 1rem;
             margin-top: 1.5rem;
         }
 
-        .pillar-item {
-            background-color: rgba(11, 15, 25, 0.6);
+        .highlight-item {
+            background: rgba(11, 15, 25, 0.6);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1rem;
+            border-radius: 8px;
+            padding: 0.9rem;
+            font-size: 0.9rem;
         }
 
-        .pillar-icon {
-            font-size: 1.4rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .pillar-title {
-            font-size: 0.95rem;
-            font-weight: 700;
+        .highlight-item strong {
+            display: block;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
 
-        .pillar-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* BIBLIOTECA DE REFLEXIONES (GRID) */
-        .cards-grid {
+        /* 2. SECCIÓN NUESTROS OBJETIVOS */
+        .objectives-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
         }
 
-        .devotional-card {
-            background-color: var(--card-bg);
+        .objective-card {
+            background: linear-gradient(145deg, #151c2c 0%, #101624 100%);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 16px;
+            padding: 2.25rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .devotional-card:hover {
+        .objective-card:hover {
+            border-color: var(--accent);
             transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.5);
-            background-color: var(--card-hover);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
         }
 
-        .card-top {
+        .objective-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-purple));
+        }
+
+        .objective-card.card-alt::before {
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent));
+        }
+
+        .objective-icon-wrapper {
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.25);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .objective-card.card-alt .objective-icon-wrapper {
+            background: rgba(251, 191, 36, 0.12);
+            border-color: rgba(251, 191, 36, 0.25);
+        }
+
+        .objective-num {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .objective-card.card-alt .objective-num {
+            color: var(--accent-gold);
+        }
+
+        .objective-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
             margin-bottom: 1rem;
         }
 
-        .card-category {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--accent);
-            background: rgba(56, 189, 248, 0.12);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-        }
-
-        .card-emoji {
-            font-size: 1.6rem;
-        }
-
-        .card-title {
-            font-size: 1.12rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.65rem;
-            line-height: 1.35;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
+        .objective-subtext {
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.55;
+            line-height: 1.6;
+        }
+
+        /* 3. SECCIÓN BIBLIOTECA - REPRODUCTORES DE YOUTUBE EMBEBIDOS */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-player-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #000;
+            aspect-ratio: 9 / 16;
+            max-height: 480px;
+            overflow: hidden;
+        }
+
+        .video-player-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-meta-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .video-stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .view-count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            background: rgba(251, 191, 36, 0.12);
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .video-category-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .video-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .video-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .video-engagement-box {
+            background: rgba(11, 15, 25, 0.75);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem 0.9rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .video-engagement-box .icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* 4. SECCIÓN ¿TIENES ALGUNA PETICIÓN? */
+        .petition-container {
+            background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.12) 0%, rgba(21, 28, 44, 0.95) 70%);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .petition-icon {
+            font-size: 3.2rem;
+            margin-bottom: 1.25rem;
+            display: inline-block;
+            filter: drop-shadow(0 4px 10px rgba(251, 191, 36, 0.3));
+        }
+
+        .petition-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
             margin-bottom: 1.25rem;
         }
 
-        .card-footer-badge {
-            font-size: 0.78rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            border-top: 1px solid rgba(35, 47, 72, 0.7);
-            padding-top: 0.85rem;
+        .petition-text {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            max-width: 740px;
+            margin: 0 auto 2rem;
+            line-height: 1.75;
         }
 
-        /* SECCIÓN REDES SOCIALES */
+        .petition-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .petition-action-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+            background: linear-gradient(135deg, #60a5fa 0%, #1d4ed8 100%);
+        }
+
+        /* 5. SECCIÓN "MUY PRONTO" (GALERÍA CINEMATOGRÁFICA DE HISTORIAS BÍBLICAS) */
+        .upcoming-intro-box {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .upcoming-intro-text {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .upcoming-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #0b0f19;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 16px 36px rgba(251, 191, 36, 0.25);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.45) 50%, rgba(11, 15, 25, 0.2) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.25rem 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            background: linear-gradient(to top, rgba(11, 15, 25, 0.98) 0%, rgba(11, 15, 25, 0.6) 60%, rgba(251, 191, 36, 0.15) 100%);
+        }
+
+        .upcoming-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(8px);
+            color: var(--accent-gold);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .gallery-subtitle {
+            font-size: 0.78rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* 6. REDES SOCIALES */
         .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .social-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.75rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
+            transition: all 0.25s ease;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .social-card:hover {
+            border-color: var(--accent);
             transform: translateY(-3px);
-            border-color: var(--accent-purple);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .social-icon {
             font-size: 2.2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.8rem;
         }
 
-        .social-card h3 {
-            font-size: 1.2rem;
+        .social-name {
             font-weight: 700;
+            font-size: 1.1rem;
             color: var(--text-primary);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
 
         .social-handle {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.85rem;
-        }
-
-        .social-card p {
             color: var(--text-secondary);
             font-size: 0.88rem;
-            line-height: 1.55;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .btn-social {
+            margin-top: auto;
             width: 100%;
-            padding: 0.65rem 1rem;
-            border-radius: 8px;
-            font-size: 0.88rem;
+            padding: 0.55rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
-            color: var(--text-primary);
-            background-color: rgba(35, 47, 72, 0.6);
-            border: 1px solid var(--border-color);
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: background 0.2s;
         }
 
-        .btn-social:hover {
-            background-color: var(--accent);
-            border-color: var(--accent);
+        .social-card:hover .btn-social {
+            background: var(--accent);
             color: #0b0f19;
         }
 
-        /* SECCIÓN CONTACTO */
+        /* 7. CONTACTO */
         .contact-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 2.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            max-width: 680px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
-        .contact-icon {
+        .contact-box .contact-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--accent);
         }
 
         .contact-box h3 {
             font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
         }
 
         .contact-box p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.65;
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .contact-email-badge {
             display: inline-block;
-            background-color: #090d16;
-            border: 1px solid var(--border-color);
-            padding: 0.85rem 1.6rem;
-            border-radius: 8px;
             font-size: 1.05rem;
             font-weight: 600;
             color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
             text-decoration: none;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
+            word-break: break-all;
+            transition: all 0.2s ease;
         }
 
         .contact-email-badge:hover {
-            border-color: var(--accent);
-            background-color: #0f172a;
+            background: var(--accent);
+            color: #0b0f19;
         }
 
-        /* FOOTER & BLOQUE TÉCNICO DISCRETO */
+        /* FOOTER */
         footer {
+            background-color: #060911;
             border-top: 1px solid var(--border-color);
-            padding: 3rem 2rem 2rem;
-            background-color: #070a10;
+            padding: 3rem 1.5rem 2.5rem;
             margin-top: auto;
         }
 
         .footer-container {
-            max-width: 1120px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -514,63 +785,55 @@
 
         .footer-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
             border-bottom: 1px solid rgba(35, 47, 72, 0.6);
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
         }
 
         .footer-links {
             display: flex;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            gap: 1.75rem;
         }
 
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.92rem;
-            transition: color 0.2s ease;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: var(--accent);
         }
 
-        /* Bloque técnico discreto de TikTok en pie de página */
         .technical-verification-block {
-            background-color: #090d16;
-            border: 1px solid rgba(35, 47, 72, 0.6);
+            background: rgba(21, 28, 44, 0.6);
+            border: 1px dashed var(--border-color);
             border-radius: 8px;
             padding: 1rem 1.25rem;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: #64748b;
             line-height: 1.6;
         }
 
         .technical-verification-block strong {
             color: #94a3b8;
-            font-weight: 600;
         }
 
         .technical-code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            color: #38bdf8;
-            background: rgba(15, 23, 42, 0.8);
+            font-family: monospace;
+            background: #0b0f19;
             padding: 0.15rem 0.4rem;
             border-radius: 4px;
-            word-break: break-all;
+            color: #38bdf8;
         }
 
         .technical-link {
             color: #38bdf8;
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .technical-link:hover {
             text-decoration: underline;
         }
 
@@ -580,393 +843,586 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            color: #64748b;
             font-size: 0.85rem;
+            color: #64748b;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 860px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
+        @media (max-width: 900px) {
             .about-card {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
-            .about-img {
-                max-width: 180px;
+            .hero-title {
+                font-size: 2.2rem;
             }
+            .video-player-wrapper {
+                max-height: 420px;
+            }
+        }
+
+        @media (max-width: 640px) {
             .header-container {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 1rem;
             }
             nav {
-                width: 100%;
-                justify-content: flex-start;
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 1.85rem;
+            }
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .upcoming-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .petition-container {
+                padding: 2.5rem 1.25rem;
+            }
+            .petition-title {
+                font-size: 1.7rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- ENCABEZADO -->
+    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="icon.png" alt="Logo Devocionales" style="width: 32px; height: 32px; border-radius: 8px; object-fit: cover;">
+            <a href="#inicio" class="logo">
+                <img src="icon.png" alt="Logo Un Minuto de Paz y Fe">
                 <span>Un Minuto de Paz y Fe</span>
-                <span class="logo-badge">DEVOCIONALES</span>
             </a>
             <nav>
-                <a href="#inicio" class="active">Inicio</a>
                 <a href="#nosotros">Quiénes Somos</a>
-                <a href="#biblioteca">Biblioteca</a>
-                <a href="#redes">Redes Sociales</a>
+                <a href="#objetivos">Objetivos</a>
+                <a href="#biblioteca">Videos</a>
+                <a href="#peticiones" class="nav-btn-highlight">Peticiones</a>
+                <a href="#proximamente">Muy Pronto</a>
+                <a href="#redes">Redes</a>
                 <a href="#contacto">Contacto</a>
-                <a href="privacy-policy.html">Privacidad</a>
-                <a href="terms-of-service.html">Términos</a>
             </nav>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <!-- 1. HERO SECTION -->
+        <!-- HERO -->
         <section class="hero" id="inicio">
-            <div class="hero-pill">
-                ✨ Comunidad Espiritual &amp; Reflexiones Diarias
-            </div>
-            <h1>Un Minuto de Paz y Fe</h1>
-            <p>
-                Un espacio dedicado a brindar consuelo, esperanza y sabiduría espiritual mediante reflexiones breves y oraciones en video vertical (9:16) diseñadas para transformar tu jornada con propósito.
+            <h1 class="hero-title">Un Minuto de Paz y Fe</h1>
+            <p class="hero-desc">
+                Portal audiovisual de reflexiones espirituales, oraciones temáticas y mensajes de edificación comunitaria diseñados para inspirar, fortalecer y renovar la esperanza cada día.
             </p>
             <div class="hero-actions">
-                <a href="#biblioteca" class="btn-primary">
-                    📖 Explorar Biblioteca de Temas
-                </a>
-                <a href="#redes" class="btn-secondary">
-                    📲 Canales y Redes Oficiales
-                </a>
+                <a href="#biblioteca" class="btn btn-primary">🎬 Ver Videos Más Vistos</a>
+                <a href="#peticiones" class="btn btn-gold">🙏 Enviar Petición de Oración</a>
+                <a href="#proximamente" class="btn btn-secondary">✨ Próximos Lanzamientos</a>
             </div>
         </section>
 
-        <!-- 2. SECCIÓN QUIÉNES SOMOS -->
+        <!-- SECCIÓN 1: QUIÉNES SOMOS -->
         <section id="nosotros">
             <div class="section-header">
                 <span class="section-tag">Nuestra Misión</span>
-                <h2 class="section-title">Sembrando Paz en Medio de la Rutina</h2>
-                <p class="section-desc">
-                    Un ministerio digital concebido para acercar la palabra de aliento a través de las plataformas donde las familias interactúan a diario.
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p class="section-subtitle">
+                    Una iniciativa comprometida con llevar mensajes edificantes a través de las plataformas digitales.
                 </p>
             </div>
-
             <div class="about-card">
-                <div class="about-img-box">
-                    <img src="ai.jpg" alt="Un Minuto de Paz y Fe - Emblema Institucional" class="about-img">
-                </div>
+                <img src="ai.jpg" alt="Un Minuto de Paz y Fe Emblem" class="about-image" loading="lazy">
                 <div class="about-content">
-                    <h3>Propósito y Compromiso Espiritual</h3>
+                    <h3>Palabras que Renuevan el Espíritu</h3>
                     <p>
-                        <strong>Un Minuto de Paz y Fe</strong> nace como una respuesta a la prisa, la ansiedad y las dificultades cotidianas que enfrentan las familias en el mundo actual. Creemos firmemente que una reflexión oportuna de sesenta segundos, acompañada de una oración sentida, puede renovar el ánimo y restaurar la paz en el corazón.
+                        <strong>Un Minuto de Paz y Fe</strong> nació con el firme propósito de crear un oasis de serenidad en medio del ritmo acelerado de la vida contemporánea. Creemos que una palabra de aliento a tiempo, una oración sincera o un versículo oportuno tienen el poder de transformar vidas, restaurar la paz en los hogares y renovar las fuerzas de quienes más lo necesitan.
                     </p>
                     <p>
-                        A través de nuestra plataforma técnica editorial <em>Devocionales Content Publisher</em>, adaptamos pasajes bíblicos, oraciones familiares y valores universales al lenguaje visual contemporáneo de las redes sociales, con locuciones serenas, música reconfortante y subtitulado claro para acompañar a nuestra comunidad cada día.
+                        A través de nuestra plataforma y canal de publicación multired, producimos reflexiones en formato vertical dinámico y atractivo, transmitiendo principios de fe, esperanza, amor y gratitud a miles de personas en YouTube Shorts, Instagram Reels, Facebook Reels y TikTok.
                     </p>
-                    <div class="about-pillars">
-                        <div class="pillar-item">
-                            <div class="pillar-icon">🕊️</div>
-                            <div class="pillar-title">Paz Mental</div>
-                            <div class="pillar-desc">Alivio frente a la ansiedad y confianza renovada ante la incertidumbre.</div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <strong>🕊️ Mensajes Diarios</strong>
+                            Oraciones temáticas para comenzar y cerrar el día con esperanza.
                         </div>
-                        <div class="pillar-item">
-                            <div class="pillar-icon">🏡</div>
-                            <div class="pillar-title">Unión Familiar</div>
-                            <div class="pillar-desc">Cobertura sobre los hijos, bendición matrimonial y armonía en el hogar.</div>
-                        </div>
-                        <div class="pillar-item">
-                            <div class="pillar-icon">🌱</div>
-                            <div class="pillar-title">Crecimiento Interior</div>
-                            <div class="pillar-desc">Sabiduría práctica y gratitud sincera para encarar los retos de cada día.</div>
+                        <div class="highlight-item">
+                            <strong>👨‍👩‍👧‍👦 Enfoque Familiar</strong>
+                            Contenido que une y bendice los hogares y a las familias.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. SECCIÓN BIBLIOTECA DE REFLEXIONES (12 TARJETAS) -->
+        <!-- SECCIÓN 2: NUESTROS OBJETIVOS -->
+        <section id="objetivos">
+            <div class="section-header">
+                <span class="section-tag section-tag-purple">Propósito y Visión</span>
+                <h2 class="section-title">Nuestros Objetivos</h2>
+                <p class="section-subtitle">
+                    Los dos pilares fundamentales que guían cada uno de nuestros proyectos y producciones audiovisuales.
+                </p>
+            </div>
+            <div class="objectives-grid">
+                <!-- Objetivo 1 -->
+                <div class="objective-card">
+                    <div class="objective-icon-wrapper">
+                        🕊️
+                    </div>
+                    <div class="objective-num">Objetivo Primordial</div>
+                    <div class="objective-text">
+                        "Llegar a la mayor cantidad de personas con fe"
+                    </div>
+                    <p class="objective-subtext">
+                        Difundir semillas de esperanza, consuelo y fortaleza espiritual a través de medios digitales modernos, alcanzando a creyentes y personas en búsqueda de paz interior en todo el mundo de habla hispana.
+                    </p>
+                </div>
+                <!-- Objetivo 2 -->
+                <div class="objective-card card-alt">
+                    <div class="objective-icon-wrapper">
+                        🎬
+                    </div>
+                    <div class="objective-num">Compromiso Editorial y Técnico</div>
+                    <div class="objective-text">
+                        "Crear contenido audiovisual de calidad, atractivo, para todo público, tomando en cuenta los principios que nos rigen"
+                    </div>
+                    <p class="objective-subtext">
+                        Producir reflexiones con altos estándares técnicos de imagen, locución profesional, música edificante y respeto pleno a los valores éticos y espirituales que fundamentan nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: BIBLIOTECA DE REPRODUCTORES YOUTUBE (TOP VIDEOS CON MÁS VISTAS) -->
         <section id="biblioteca">
             <div class="section-header">
-                <span class="section-tag">Catálogo Temático</span>
-                <h2 class="section-title">Biblioteca de Reflexiones y Oraciones</h2>
-                <p class="section-desc">
-                    Conoce las series devocionales activas producidas para nuestras transmisiones en video vertical.
+                <span class="section-tag section-tag-gold">Audiencia y Comunidad</span>
+                <h2 class="section-title">Videos Más Vistos del Canal</h2>
+                <p class="section-subtitle">
+                    Nuestras oraciones y reflexiones devocionales con mayor impacto y visualizaciones en YouTube Shorts.
                 </p>
             </div>
 
-            <div class="cards-grid">
-                <!-- Tarjeta 1 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Paz Interior</span>
-                            <span class="card-emoji">🕊️</span>
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/iUjiPzYcNhA?rel=0" 
+                            title="Sabiduría para Ahorrar, Invertir y Cuidar el Patrimonio Familiar" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 1,180 visualizaciones</span>
+                            <span class="video-category-tag">Finanzas Bíblicas</span>
                         </div>
-                        <h3 class="card-title">Paz mental contra la ansiedad</h3>
-                        <p class="card-desc">
-                            Oración de sosiego para despejar pensamientos abrumadores, soltar cargas y descansar en la serenidad divina.
+                        <h3 class="video-title">Sabiduría para Ahorrar, Invertir y Cuidar el Patrimonio Familiar</h3>
+                        <p class="video-desc">
+                            Oración pidiendo guía y prudencia divina para administrar sabiamente la economía del hogar y proteger el patrimonio de la familia.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">✨</span>
+                            <span>Reflexión más vista: paz y orden en las decisiones de ahorro.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 2 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Familia</span>
-                            <span class="card-emoji">🏡</span>
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/vMs7pzW--Xo?rel=0" 
+                            title="Reconciliación entre Padres e Hijos Distanciados" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 1,156 visualizaciones</span>
+                            <span class="video-category-tag">Restauración Familiar</span>
                         </div>
-                        <h3 class="card-title">Bendición de la familia</h3>
-                        <p class="card-desc">
-                            Clamor de unidad, comprensión y bendición para proteger el hogar y fortalecer los lazos afectivos.
+                        <h3 class="video-title">Reconciliación entre Padres e Hijos Distanciados</h3>
+                        <p class="video-desc">
+                            Clamor por el perdón, la comprensión mutua y el derribamiento de muros de rencor para volver a unir a las familias en amor.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">❤️</span>
+                            <span>Mensaje de sanidad y reencuentro en el seno del hogar.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 3 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Sanidad</span>
-                            <span class="card-emoji">🌿</span>
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/gg-OyrQJ5Xo?rel=0" 
+                            title="Sanidad Interior" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 1,104 visualizaciones</span>
+                            <span class="video-category-tag">Paz y Fortaleza</span>
                         </div>
-                        <h3 class="card-title">Sanidad interior y perdón</h3>
-                        <p class="card-desc">
-                            Reflexión sanadora para soltar resentimientos del pasado, restaurar el alma y hallar paz en el perdón.
+                        <h3 class="video-title">Sanidad Interior</h3>
+                        <p class="video-desc">
+                            Liberación de cargas emocionales, heridas del pasado y angustias, renovando el corazón con la gracia y la paz que sobrepasa todo entendimiento.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🕊️</span>
+                            <span>Devocional destacado de restauración emocional profunda.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 4 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Hijos</span>
-                            <span class="card-emoji">🛡️</span>
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/bftPBFr3M7E?rel=0" 
+                            title="Gratitud Familiar por el Techo, el Alimento y la Salud Compartida" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 1,029 visualizaciones</span>
+                            <span class="video-category-tag">Gratitud y Hogar</span>
                         </div>
-                        <h3 class="card-title">Protección y bendición sobre los hijos varones</h3>
-                        <p class="card-desc">
-                            Oración de cobertura y discernimiento para guardar los pasos, integridad y decisiones de los hijos.
+                        <h3 class="video-title">Gratitud Familiar por el Techo, el Alimento y la Salud</h3>
+                        <p class="video-desc">
+                            Un homenaje sincero de agradecimiento a Dios por la provisión diaria, el abrigo y la bendición de tener vida y salud en compañía de los seres amados.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🙏</span>
+                            <span>Oración de acción de gracias compartida en familia.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 5 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Hijas</span>
-                            <span class="card-emoji">🌸</span>
+                <!-- Video 5 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/t7Mc647tEc4?rel=0" 
+                            title="Prosperidad Integral: Salud, Paz y Economía en Equilibrio" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 961 visualizaciones</span>
+                            <span class="video-category-tag">Bienestar Integral</span>
                         </div>
-                        <h3 class="card-title">Sabiduría y cobertura para las hijas mujeres</h3>
-                        <p class="card-desc">
-                            Bendición maternal y paternal de gracia, fortaleza interior y cuidado angelical en cada paso de su vida.
+                        <h3 class="video-title">Prosperidad Integral: Salud, Paz y Economía en Equilibrio</h3>
+                        <p class="video-desc">
+                            Rogativa por la verdadera abundancia bíblica: armonía espiritual, vigor físico y sustento honrado en el trabajo y los proyectos.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🌿</span>
+                            <span>Equilibrio entre bienestar físico, mental y financiero.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 6 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Hogar</span>
-                            <span class="card-emoji">🧭</span>
+                <!-- Video 6 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ncREUsyUnFE?rel=0" 
+                            title="Superar el Miedo" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 873 visualizaciones</span>
+                            <span class="video-category-tag">Victoria y Valentía</span>
                         </div>
-                        <h3 class="card-title">Sabiduría divina para la cabeza de hogar</h3>
-                        <p class="card-desc">
-                            Guía y temple espiritual para liderar la familia con prudencia, justicia y amor incondicional.
+                        <h3 class="video-title">Superar el Miedo y la Incertidumbre</h3>
+                        <p class="video-desc">
+                            Palabra de confianza ante las tormentas de la vida, recordando que no nos ha dado Dios espíritu de cobardía, sino de poder, amor y dominio propio.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🛡️</span>
+                            <span>Escudo espiritual ante momentos de prueba y temor.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 7 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Finanzas</span>
-                            <span class="card-emoji">💼</span>
+                <!-- Video 7 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/DyPsk2xTbTM?rel=0" 
+                            title="Superación del Luto y Consuelo Familiar" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 870 visualizaciones</span>
+                            <span class="video-category-tag">Consuelo y Esperanza</span>
                         </div>
-                        <h3 class="card-title">Sabiduría financiera y administración</h3>
-                        <p class="card-desc">
-                            Oración por orden, honestidad y bendición en el manejo responsable de los recursos de la casa.
+                        <h3 class="video-title">Superación del Luto y Consuelo para la Familia</h3>
+                        <p class="video-desc">
+                            Aliento tierno y respetuoso para quienes enfrentan la pérdida de un ser amado, pidiendo fortaleza y el consuelo eterno del Espíritu Santo.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🕯️</span>
+                            <span>Acompañamiento y oración de consuelo para familias en duelo.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 8 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Matrimonio</span>
-                            <span class="card-emoji">💍</span>
+                <!-- Video 8 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/e6EZH5JeDpU?rel=0" 
+                            title="Sanidad Física para un Familiar Enfermo" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 817 visualizaciones</span>
+                            <span class="video-category-tag">Sanidad y Salud</span>
                         </div>
-                        <h3 class="card-title">Paz, respeto y amor en los esposos</h3>
-                        <p class="card-desc">
-                            Renovación del pacto matrimonial, comunicación paciente y ternura para superar diferencias cotidianas.
+                        <h3 class="video-title">Sanidad Física para un Miembro de la Familia Enfermo</h3>
+                        <p class="video-desc">
+                            Intercesión ferviente por la recuperación de la salud, fuerza en los tratamientos y milagro de restauración para los seres queridos enfermos.
                         </p>
+                        <div class="video-engagement-box">
+                            <span class="icon">🩺</span>
+                            <span>Intercesión activa por la pronta recuperación física.</span>
+                        </div>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
 
-                <!-- Tarjeta 9 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Esperanza</span>
-                            <span class="card-emoji">🕯️</span>
+                <!-- Video 9 -->
+                <div class="video-card">
+                    <div class="video-player-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/6jfT7WyhnzE?rel=0" 
+                            title="Apertura de Puertas para Nuevos Negocios y Emprendimientos" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-meta-body">
+                        <div class="video-stats-bar">
+                            <span class="view-count-badge">👁️ 764 visualizaciones</span>
+                            <span class="video-category-tag">Trabajo y Emprendimiento</span>
                         </div>
-                        <h3 class="card-title">Consuelo y superación en momentos de pérdida</h3>
-                        <p class="card-desc">
-                            Acompañamiento espiritual ante el duelo, brindando aliento para encontrar consuelo y fortaleza.
+                        <h3 class="video-title">Apertura de Puertas para Nuevos Negocios</h3>
+                        <p class="video-desc">
+                            Bendición sobre las manos trabajadoras, pidiendo oportunidades justas, clientes honrados y dirección divina en proyectos y emprendimientos familiares.
                         </p>
-                    </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
-
-                <!-- Tarjeta 10 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Trabajo</span>
-                            <span class="card-emoji">⚖️</span>
+                        <div class="video-engagement-box">
+                            <span class="icon">💼</span>
+                            <span>Oración por el trabajo honesto y la prosperidad laboral.</span>
                         </div>
-                        <h3 class="card-title">Protección y estabilidad laboral</h3>
-                        <p class="card-desc">
-                            Agradecimiento por las fuentes de empleo, bendición sobre las manos trabajadoras y apertura de puertas.
-                        </p>
                     </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
-
-                <!-- Tarjeta 11 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Gratitud</span>
-                            <span class="card-emoji">🍞</span>
-                        </div>
-                        <h3 class="card-title">Gratitud familiar por el pan y la salud</h3>
-                        <p class="card-desc">
-                            Reconocimiento sincero por el techo, la salud compartida y el sustento que nunca falta en la mesa.
-                        </p>
-                    </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
-
-                <!-- Tarjeta 12 -->
-                <article class="devotional-card">
-                    <div>
-                        <div class="card-top">
-                            <span class="card-category">Matrimonio</span>
-                            <span class="card-emoji">🤝</span>
-                        </div>
-                        <h3 class="card-title">Alianza matrimonial blindada bajo la fe</h3>
-                        <p class="card-desc">
-                            Protección contra la discordia y compromiso para edificar un matrimonio duradero basado en la fe.
-                        </p>
-                    </div>
-                    <div class="card-footer-badge">
-                        ▶ Video disponible en redes oficiales
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
 
-        <!-- 4. SECCIÓN SÍGUENOS EN REDES SOCIALES -->
-        <section id="redes">
+        <!-- SECCIÓN 4: ¿TIENES ALGUNA PETICIÓN? (DEBAJO DE LA BIBLIOTECA) -->
+        <section id="peticiones">
+            <div class="petition-container">
+                <div class="petition-icon">🙏</div>
+                <h2 class="petition-title">¿Tienes alguna petición?</h2>
+                <p class="petition-text">
+                    Si no lograste llegar a nuestras redes sociales, comparte y coméntanos; estamos dispuestos a ayudarte en oración. Recuerda que, donde más de uno ora, Jesús está presente.
+                </p>
+                <a href="mailto:ivar.justiniano.guillen.123@gmail.com?subject=Peticion%20de%20Oracion%20-%20Un%20Minuto%20de%20Paz%20y%20Fe" class="petition-action-btn">
+                    <span>✉️ Cuéntanos tu petición</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: MUY PRONTO (HISTORIAS BÍBLICAS DRAMÁTICAS Y FANTÁSTICAS) -->
+        <section id="proximamente">
             <div class="section-header">
-                <span class="section-tag">Canales Oficiales</span>
-                <h2 class="section-title">Conéctate a Nuestras Redes</h2>
-                <p class="section-desc">
-                    Publicamos nuevo contenido en video vertical todos los días. Síguenos en tu plataforma favorita:
+                <span class="section-tag section-tag-gold">Próximos Estrenos</span>
+                <h2 class="section-title">Muy Pronto</h2>
+            </div>
+            <div class="upcoming-intro-box">
+                <p class="upcoming-intro-text">
+                    "Si bien esto no es todo, esperen nuestros próximos lanzamientos: estamos preparando historias bíblicas narradas con un estilo dramático y fantástico."
                 </p>
             </div>
 
+            <!-- Galería de imágenes cinematográficas -->
+            <div class="upcoming-gallery">
+                <!-- Imagen 1 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_apocalyptic_fantasy_scene-1791868370212.png" alt="El Valle de los Huesos Secos" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">El Valle de la Profecía</h4>
+                        <span class="gallery-subtitle">Ezequiel y la Visión de Esperanza</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_atmospheric_scene_in_the_w-1791868299602.png" alt="La Travesía por el Desierto" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">La Travesía en el Desierto</h4>
+                        <span class="gallery-subtitle">La Columna de Fuego y Guía</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_close-up_of_a_market_food_-1791950175702.png" alt="La Multiplicación Milagrosa" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Provisión Milagrosa</h4>
+                        <span class="gallery-subtitle">Ciudades Bíblicas y Abundancia</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 4 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_close-up_over_a_pale_stone-1791950160886.png" alt="Las Tablas de la Ley" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">La Roca del Pacto</h4>
+                        <span class="gallery-subtitle">El Encuentro en el Monte Sinaí</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 5 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_extreme_close-up_of_a_sing-1791950172315.png" alt="El Fuego del Altar" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">El Fuego Sagrado</h4>
+                        <span class="gallery-subtitle">Consagración y Fidelidad</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 6 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_post-apocalyptic_scene_at_-1791868388543.png" alt="Las Murallas de Jericó" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Muros que Caen</h4>
+                        <span class="gallery-subtitle">La Victoria de la Fe Ferviente</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 7 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_scene_at_the_edge_of_a_hid-1791950273743.png" alt="El Paso de las Aguas" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Caminos sobre las Aguas</h4>
+                        <span class="gallery-subtitle">El Éxodo hacia la Promesa</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 8 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_shot_of_a_row_of_walking_s-1791950165865.png" alt="El Pueblo en Marcha" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">El Gran Peregrinaje</h4>
+                        <span class="gallery-subtitle">Una Multitud con un Destino</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 9 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_suspenseful_night_scene_on-1791868219017.png" alt="La Noche en Getsemaní" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">La Noche en el Monte</h4>
+                        <span class="gallery-subtitle">Oración en Soledad y Rendición</span>
+                    </div>
+                </div>
+
+                <!-- Imagen 10 -->
+                <div class="gallery-card">
+                    <img src="assets/proximamente/Cinematic_vertical_916_wide_establishing_shot_ins-1791868312306.png" alt="La Gloria del Templo" loading="lazy">
+                    <div class="upcoming-badge">✦ Muy Pronto</div>
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">El Santuario Glorioso</h4>
+                        <span class="gallery-subtitle">Adoración en la Majestad Divina</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: COMUNIDAD Y REDES SOCIALES -->
+        <section id="redes">
+            <div class="section-header">
+                <span class="section-tag">Nuestras Comunidades</span>
+                <h2 class="section-title">Síguenos en Redes Sociales</h2>
+                <p class="section-subtitle">
+                    Encuentra nuestras oraciones y reflexiones diarias en tu plataforma favorita.
+                </p>
+            </div>
             <div class="social-grid">
                 <!-- Instagram -->
                 <div class="social-card">
-                    <div>
-                        <div class="social-icon">📸</div>
-                        <h3>Instagram</h3>
-                        <div class="social-handle">@unminutodepazyfe</div>
-                        <p>Reels diarios con mensajes de oración, reflexiones visuales y momentos de inspiración para tu día.</p>
-                    </div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-name">Instagram</div>
+                    <div class="social-handle">@unminutodepazyfe</div>
                     <a href="https://www.instagram.com/unminutodepazyfe/" target="_blank" rel="noopener noreferrer" class="btn-social">
-                        Seguir en Instagram
+                        Ver en Instagram
                     </a>
                 </div>
-
                 <!-- Facebook -->
                 <div class="social-card">
-                    <div>
-                        <div class="social-icon">📘</div>
-                        <h3>Facebook</h3>
-                        <div class="social-handle">Un Minuto de Paz y Fe</div>
-                        <p>Página comunitaria oficial con publicaciones diurnas de Reels y espacio para peticiones y comentarios.</p>
-                    </div>
+                    <div class="social-icon">👥</div>
+                    <div class="social-name">Facebook</div>
+                    <div class="social-handle">Un Minuto de Paz y Fe</div>
                     <a href="https://www.facebook.com/1303534312847555" target="_blank" rel="noopener noreferrer" class="btn-social">
-                        Visitar en Facebook
+                        Ver en Facebook
                     </a>
                 </div>
-
                 <!-- YouTube -->
                 <div class="social-card">
-                    <div>
-                        <div class="social-icon">▶️</div>
-                        <h3>YouTube</h3>
-                        <div class="social-handle">@unminutodepazyfe</div>
-                        <p>Shorts devocionales en formato vertical con subtítulos completos y audio optimizado en alta fidelidad.</p>
-                    </div>
+                    <div class="social-icon">▶️</div>
+                    <div class="social-name">YouTube</div>
+                    <div class="social-handle">@unminutodepazyfe</div>
                     <a href="https://www.youtube.com/@unminutodepazyfe" target="_blank" rel="noopener noreferrer" class="btn-social">
                         Ver en YouTube
                     </a>
                 </div>
-
                 <!-- TikTok -->
                 <div class="social-card">
-                    <div>
-                        <div class="social-icon">🎵</div>
-                        <h3>TikTok</h3>
-                        <div class="social-handle">@unminutodepazyfe</div>
-                        <p>Reflexiones condensadas en clips breves de 60 segundos publicados mediante nuestra integración oficial.</p>
-                    </div>
+                    <div class="social-icon">🎵</div>
+                    <div class="social-name">TikTok</div>
+                    <div class="social-handle">@unminutodepazyfe</div>
                     <a href="https://www.tiktok.com/@unminutodepazyfe" target="_blank" rel="noopener noreferrer" class="btn-social">
                         Ver en TikTok
                     </a>
@@ -974,19 +1430,19 @@
             </div>
         </section>
 
-        <!-- 5. SECCIÓN DE CONTACTO -->
+        <!-- SECCIÓN 7: CONTACTO -->
         <section id="contacto">
             <div class="contact-box">
                 <div class="contact-icon">✉️</div>
-                <h3>Contacto y Peticiones de Oración</h3>
+                <h3>Contacto y Atención</h3>
                 <p>
-                    Si deseas hacernos llegar una sugerencia de temática devocional, tienes alguna consulta sobre nuestra plataforma o deseas contactar a nuestro equipo editorial, puedes escribirnos con toda libertad:
+                    Si deseas hacernos llegar una sugerencia de temática, tienes alguna consulta sobre nuestra plataforma o deseas contactar a nuestro equipo editorial, puedes escribirnos con toda libertad:
                 </p>
-                <a href="mailto:soporte@devocionalescontent.com" class="contact-email-badge">
-                    soporte@devocionalescontent.com
+                <a href="mailto:ivar.justiniano.guillen.123@gmail.com" class="contact-email-badge">
+                    ivar.justiniano.guillen.123@gmail.com
                 </a>
                 <p style="margin-top: 1.25rem; font-size: 0.88rem; color: #64748b;">
-                    Respondemos en días hábiles dentro de las 24 a 48 horas.
+                    Respondemos peticiones y consultas en días hábiles dentro de las 24 a 48 horas.
                 </p>
             </div>
         </section>
@@ -1003,7 +1459,10 @@
                 <div class="footer-links">
                     <a href="#inicio">Inicio</a>
                     <a href="#nosotros">Quiénes Somos</a>
-                    <a href="#biblioteca">Biblioteca</a>
+                    <a href="#objetivos">Objetivos</a>
+                    <a href="#biblioteca">Videos</a>
+                    <a href="#peticiones">Peticiones</a>
+                    <a href="#proximamente">Muy Pronto</a>
                     <a href="#redes">Redes Sociales</a>
                     <a href="#contacto">Contacto</a>
                     <a href="privacy-policy.html">Política de Privacidad</a>
@@ -1011,7 +1470,7 @@
                 </div>
             </div>
 
-            <!-- Bloque técnico de verificación TikTok discreto (Requisito 6) -->
+            <!-- Bloque técnico de verificación TikTok discreto -->
             <div class="technical-verification-block">
                 <strong>Verificación técnica de dominio (TikTok for Developers):</strong>
                 Este sitio aloja la meta-etiqueta <span class="technical-code">&lt;meta name="tiktok-developers-site-verification" content="Svwa9bUiO50vO9fZksAtfvndiRHQ5mr3" /&gt;</span> y el archivo de autenticación en raíz <a href="tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt" target="_blank" rel="noopener" class="technical-link">tiktokSvwa9bUiO50vO9fZksAtfvndiRHQ5mr3.txt</a> requeridos para la integración con la Content Posting API de TikTok.
