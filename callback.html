@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autorización TikTok · Devocionales</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+           background: #0D0F14; color: #E6E9EF;
+           font: 16px/1.5 -apple-system, Segoe UI, Roboto, sans-serif; }
+    main { width: min(680px, 92vw); background: #151922; border: 1px solid #2A3040;
+           border-radius: 16px; padding: 32px; }
+    h1 { margin-top: 0; color: #22D3EE; }
+    code, textarea { display: block; width: 100%; box-sizing: border-box;
+      background: #0D0F14; color: #E6E9EF; border: 1px solid #2A3040;
+      border-radius: 8px; padding: 12px; margin: 12px 0; word-break: break-all; }
+    button { background: #22D3EE; color: #0D0F14; border: 0; border-radius: 8px;
+             padding: 10px 16px; font-weight: 700; cursor: pointer; }
+    small { color: #8A93A6; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Autorización TikTok</h1>
+  <p>Esta página recibe el <strong>code</strong> de TikTok. Copialo y pegálo en el Lanzador → Credenciales → Autorizar TikTok.</p>
+  <label for="code"><strong>Código</strong></label>
+  <textarea id="code" rows="4" readonly placeholder="Esperando el código de TikTok..."></textarea>
+  <button id="copiar" type="button">Copiar código</button>
+  <p><small>Si falta el código, volvé a iniciar la autorización desde el Lanzador.</small></p>
+</main>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code") || "";
+  const error = params.get("error") || "";
+  const out = document.getElementById("code");
+  out.value = code || (error ? "Error de TikTok: " + error : "No se recibió code en la URL.");
+  document.getElementById("copiar").addEventListener("click", async () => {
+    if (!out.value || out.value.startsWith("No se recibió") || out.value.startsWith("Error")) return;
+    await navigator.clipboard.writeText(out.value);
+  });
+</script>
+</body>
+</html>
